@@ -1,3 +1,1 @@
-{
-  "artItems": []
-}
+{"artItems":[{"id":1,"name":"Jaime Emard","imageUrl":"https://cdn.fakercloud.com/avatars/danvierich_128.jpg","localisation":"-145.6713,-58.1396","grade":-3},{"id":2,"name":"Jake Lebsack","imageUrl":"https://cdn.fakercloud.com/avatars/xadhix_128.jpg","localisation":"71.6862,-0.5626","grade":-2},{"id":3,"name":"Valerie Balistreri","imageUrl":"https://cdn.fakercloud.com/avatars/saarabpreet_128.jpg","localisation":"107.0010,64.5966","grade":-3},{"id":4,"name":"Timothy Gusikowski","imageUrl":"https://cdn.fakercloud.com/avatars/karlkanall_128.jpg","localisation":"158.9221,3.9124","grade":-1},{"id":5,"name":"Janis Towne","imageUrl":"https://cdn.fakercloud.com/avatars/jeremyworboys_128.jpg","localisation":"-164.1240,28.8046","grade":-2}]}
