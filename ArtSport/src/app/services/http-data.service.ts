@@ -39,4 +39,44 @@ export class HttpDataService {
         catchError(this.handleError)
       )
   }
+
+  // Get items
+  getList(): Observable<ArtItems> {
+    return this.http
+      .get<ArtItems>(this.artItemsPath)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // Get item by ID
+  getItem(id): Observable<ArtItems> {
+    return this.http
+      .get<ArtItems>(this.artItemsPath + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // Update item
+  updateItem(id, item): Observable<ArtItems> {
+    return this.http
+      .put<ArtItems>(this.artItemsPath + '/' + id, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // Delete item
+  deleteItem(id) {
+    return this.http
+      .delete<ArtItems>(this.artItemsPath + '/' + id, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 }
