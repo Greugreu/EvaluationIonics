@@ -11,7 +11,7 @@ for (let i = 1; i <= 5; i++) {
     name: faker.name.findName(),
     imageUrl: faker.image.avatar(),
     localisation: faker.address.longitude() + "," + faker.address.latitude(),
-    grade: Math.floor(Math.random() * (1 - 5)) + 1,
+    grade: Math.floor(Math.random() * (5 - 1)) + 1,
   });
 }
 
