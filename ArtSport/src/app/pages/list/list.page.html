@@ -1,0 +1,35 @@
+<ion-content>
+  <div class="content" *ngIf="loaded; else loading">
+    <div *ngIf="artItems; else error">
+      <p *ngIf="artItems.length > 0; else emptyList">
+        Il y a {{ artItems.length }} items disponibles
+      </p>
+      <ng-template #emptyList>
+        Aucun item disponible pour le moment
+      </ng-template>
+
+      <ion-card *ngFor="let artItem of artItems" [routerLink]="'/show/' + artItem.id">
+        <img [src]="artItem.image" [alt]="artItem.name">
+        <ion-card-header>
+          <ion-card-title>
+            <span [innerHtml]="artItem.category"></span>
+            {{ artItem.name }}
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{ artItem.location.address }}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ng-template #error>
+      <app-error (retry)="load()"
+                 message="La liste n'a pas pu être chargée, veuillez réessayer plus tard">
+      </app-error>
+    </ng-template>
+  </div>
+  <ng-template #loading>
+    <app-loader></app-loader>
+  </ng-template>
+</ion-content>
