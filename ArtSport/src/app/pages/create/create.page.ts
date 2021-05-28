@@ -13,10 +13,10 @@ import {ArtItemService} from "../../services/art-item.service";
 })
 export class CreatePage implements OnInit {
 
-  private placeForm: FormGroup;
-  private grades: Array<number>;
-  private submited: boolean = false;
-  private loader: boolean = false;
+  itemForm: FormGroup;
+  grades: Array<number>;
+  submited: boolean = false;
+  loader: boolean = false;
   private nativePicture: string;
 
   constructor(public formBuilder: FormBuilder,
@@ -31,7 +31,7 @@ export class CreatePage implements OnInit {
   }
 
   buildForm(){
-    this.placeForm = this.formBuilder.group({
+    this.itemForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       image: [''],
       nativeImage: [''],
@@ -44,12 +44,12 @@ export class CreatePage implements OnInit {
 
   save(){
     this.submited = true;
-    if(!this.placeForm.valid){
+    if(!this.itemForm.valid){
       return;
     }
     this.loader = true;
 
-    let values = this.placeForm.value;
+    let values = this.itemForm.value;
     let image = this.nativePicture ? this.nativePicture : values['image'];
 
     let location = new LocationModel(values['address']);
@@ -69,7 +69,7 @@ export class CreatePage implements OnInit {
   }
 
   getForm(){
-    return this.placeForm.controls;
+    return this.itemForm.controls;
   }
 
   validateImage(form: string, native: string){
